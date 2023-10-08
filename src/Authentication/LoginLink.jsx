@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { userLogout } from '../Redux/Action/ActionUser';
 
 function LoginLink(props) {
@@ -13,9 +12,9 @@ function LoginLink(props) {
 
   return (
     <li className="nav-item" onClick={onRedirect}>
-      <Link className="nav-link" to="/login">
+      <a className="nav-link" href="/login">
         ( Logout )
-      </Link>
+      </a>
     </li>
   );
 }
