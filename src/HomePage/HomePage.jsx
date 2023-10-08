@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import Image from '../Common/img/Image';
 import convertMoney from '../convertMoney';
-import { Link } from 'react-router-dom';
-import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
-import HeroComponent from './HeroComponent';
+import { showPopup } from '../Redux/Action/ActionPopup';
 import Categories from './Categories';
 import FeatureSection from './FeatureSection';
-import SubscribeSection from './SubscribeSection';
-import ProductList from './ProductList';
+import HeroComponent from './HeroComponent';
 import Popup from './Popup';
+import ProductList from './ProductList';
+import SubscribeSection from './SubscribeSection';
 
 function HomePage(props) {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const popup = product => dispatch(showPopup(product));
 
   // Fetch Product
   useEffect(() => {
@@ -40,6 +45,7 @@ function HomePage(props) {
 
   const openModal = product => {
     setSelectedProduct(product);
+    popup(product);
   };
 
   const closeModal = () => {

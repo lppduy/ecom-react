@@ -99,11 +99,6 @@ function ShopPage(props) {
     <Container>
       <HeaderShop />
 
-      {/* {products &&
-        products.map((product, index) => (
-          <ProductList product={product} convertMoney={convertMoney} key={product._id} />
-        ))} */}
-
       <section className="py-5">
         <Row>
           <Sidebar handlerCategory={handlerCategory} />
